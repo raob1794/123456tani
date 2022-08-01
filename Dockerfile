@@ -1,7 +1,7 @@
 FROM node
 WORKDIR /app
 ADD . /app
-copy ./json
+COPY ./json
 RUN npm install
 RUN npm test
 EXPOSE 3000
