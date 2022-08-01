@@ -3,6 +3,6 @@ WORKDIR /app
 COPY package.json /app
 ADD . /app
 RUN npm install
-EXPOSE 3000
-CMD npm start
+EXPOSE 3000"
+CMD ["npm" ,"start"]
 
