@@ -22,7 +22,7 @@ stages{
                 sh 'docker images'
             }
         }
-    stage('list of exisitng continaer ') { 
+    stage('Test ') { 
             steps {
               sh 'docker ps -a'
     }
