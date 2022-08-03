@@ -24,7 +24,9 @@ stages{
    //     }
     stage('Test ') { 
             steps {
-              sh 'docker ps -a'
+                sh 'npm test' 
+                    echo 'testing application'
+              //sh 'docker ps -a'
     }
 }
    //  stage('Docker Remove containers') { 
