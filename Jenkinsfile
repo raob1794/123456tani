@@ -24,7 +24,7 @@ stages{
    //     }
     stage('Test ') { 
             steps {
-                sh 'npm test'
+              //  sh 'npm test'
                     echo 'testing application'
               //sh 'docker ps -a'
     }
