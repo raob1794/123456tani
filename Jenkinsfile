@@ -29,15 +29,15 @@ stages{
               //sh 'docker ps -a'
     }
 }
-   //  stage('Docker Remove containers') { 
-     //     when {
-    //            // Only say hello if a "greeting" is requested
-    //            expression { params.REQUESTED_ACTION == 'Yes' }
-    //        }
-    //        steps {
-    //            sh 'docker rm -f $(docker ps -aq)'
-     //       }
-     //   }
+     stage('Docker Remove containers') { 
+          when {
+                // Only say hello if a "greeting" is requested
+                expression { params.REQUESTED_ACTION == 'Yes' }
+          }
+           steps {
+                sh 'docker rm -f $(docker ps -aq)'
+            }
+        }
    //   stage('docker Containers') { 
    //         steps {
    //             sh 'docker run -d -p 3001:3000 --name ${containername} node-sample:${imageversion} '
@@ -45,7 +45,7 @@ stages{
      //   }
 stage('Delpoy nodejs application') { 
             steps {
-                sh 'docker rm -f $(docker ps -aq)'
+                
               sh 'docker run -d -p 3001:3000 --name ${containername} node-sample:${imageversion} '
     }
 }
