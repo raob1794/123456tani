@@ -27,7 +27,7 @@ stages{
               sh 'docker ps -a'
     }
 }
-     stage('Docker Remove containers') { 
+     //stage('Docker Remove containers') { 
           when {
                 // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'Yes' }
