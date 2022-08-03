@@ -45,7 +45,7 @@ stages{
      //   }
 stage('Delpoy nodejs application') { 
             steps {
-                sh 'docker rm -f $(docker ps -aq)'
+       //         sh 'docker rm -f $(docker ps -aq)'
               sh 'docker run -d -p 3001:3000 --name ${containername} node-sample:${imageversion} '
     }
 }
