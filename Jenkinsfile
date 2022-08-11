@@ -39,7 +39,18 @@ stage('Delpoy nodejs application') {
               sh 'docker run -d -p 3001:3000 --name ${containername} node-sample:${imageversion} '
     }
 }
-    
+stage('Publish to ECR') { 
+            steps {
+                
+              script{
+                  docker.withRegistry(
+                     "https://486949303415.dkr.ecr.us-east-1.amazonaws.com",
+                      "ecr:us-east-1:aws-credential"){
+                    def myImage = docker.build("node-repo"), 
+                    myimage.push("1.0.1"))
+                  }
+    }
+}
 }
     
 
