@@ -42,13 +42,7 @@ stage('Delpoy nodejs application') {
     stage('Publish to ECR') { 
             steps {
                 
-              script{
-                  docker.withRegistry(
-                     "https://486949303415.dkr.ecr.us-east-1.amazonaws.com",
-                      "ecr:us-east-1:aws-credential"){
-                    def myImage = docker.build("node-repo"), 
-                    myImage.push("1.0.1")
-                  }
+              step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: '', fromRegistry: [credentialsId: 'ecr:us-east-1:aws-credentials'], pushCredentialsId: 'ecr:us-east-1:aws-credentials', pushOnSuccess: true, tagsString: 'public.ecr.aws/k0d4i8o3/node-sample:1.0.1a'])
     }
 }
 }
