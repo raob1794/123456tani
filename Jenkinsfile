@@ -42,7 +42,7 @@ stage('Delpoy nodejs application') {
     stage('Publish to ECR') { 
             steps {
                 
-              step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: '', fromRegistry: [credentialsId: 'ecr:us-east-1:aws-credentials'], pushCredentialsId: 'ecr:us-east-1:aws-credentials', pushOnSuccess: true, tagsString: 'public.ecr.aws/k0d4i8o3/node-sample:1.0.1a'])
+              step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: '', fromRegistry: [credentialsId: 'ecr:us-east-1:aws-credentials'], pushCredentialsId: 'ecr:us-east-1:aws-credentials', pushOnSuccess: true, tagsString: 'public.ecr.aws/k0d4i8o3/node-sample:${imageversion}'])
     }
 }
 }
