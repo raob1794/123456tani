@@ -27,7 +27,7 @@ stages{
     {
         steps
         {
-            sh 'docker tag node-sample:latest public.ecr.aws/k0d4i8o3/node-sample:${imageversion}'
+            sh 'docker tag node-sample:${imageversion} public.ecr.aws/k0d4i8o3/node-sample:${imageversion}'
             sh 'docker push public.ecr.aws/k0d4i8o3/node-sample:${imageversion}'
     }
        
