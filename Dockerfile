@@ -1,4 +1,5 @@
-FROM amazon/aws-lambda-nodejs:12
+FROM public.ecr.aws/lambda/nodejs:12
+//FROM amazon/aws-lambda-nodejs:12
 WORKDIR /app
 COPY package.json /app
 ADD . /app
