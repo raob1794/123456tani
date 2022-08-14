@@ -28,9 +28,9 @@ stages{
         steps
         {
        // sh 'aws ecr create-repository --repository-name node-sample --image-scanning-configuration scanOnPush=true'
-       sh 'docker tag node-sample:latest 486949303415.dkr.ecr.us-east-1.amazonaws.com/node-sample:latest'
+       sh 'docker tag node-sample:latest 486949303415.dkr.ecr.us-east-1.amazonaws.com/node-sample:1.0.0.0'
        sh 'aws ecr get-login-password | docker login --username venkat--password-stdin 486949303415.dkr.ecr.us-east-1.amazonaws.com'
-        sh 'docker push 486949303415.dkr.ecr.us-east-1.amazonaws.com/node-sample:latest'
+        sh 'docker push 486949303415.dkr.ecr.us-east-1.amazonaws.com/node-sample:1.0.0.0'
         }
        
     }
