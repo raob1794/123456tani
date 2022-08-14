@@ -27,6 +27,7 @@ stages{
     {
         steps
         {
+            sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/k0d4i8o3'
             sh 'docker tag node-sample:${imageversion} public.ecr.aws/k0d4i8o3/node-sample:${imageversion}'
             sh 'docker push public.ecr.aws/k0d4i8o3/node-sample:${imageversion}'
     }
