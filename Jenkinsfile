@@ -28,6 +28,7 @@ stages{
         steps
         {
        // sh 'aws ecr create-repository --repository-name node-sample --image-scanning-configuration scanOnPush=true'
+             step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: '', dockerFileDirectory: '', fromRegistry: [credentialsId: 'ecr:us-east-1:aws-credentials'], pushCredentialsId: 'ecr:us-east-1:aws-credentials', pushOnSuccess: true, tagsString: 'public.ecr.aws/k0d4i8o3/node-sample:${imageversion}'])
        sh 'docker tag node-sample:1.0.0.0 --region us-east-1 486949303415.dkr.ecr.us-east-1.amazonaws.com/node-sample:1.0.0.0'
        sh 'aws ecr get-login-password | docker login --username venkat--password-stdin --region us-east-1 486949303415.dkr.ecr.us-east-1.amazonaws.com'
         sh 'docker push --region us-east-1 486949303415.dkr.ecr.us-east-1.amazonaws.com/node-sample:1.0.0.0'
